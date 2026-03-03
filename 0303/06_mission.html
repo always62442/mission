@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .home {
+            display: flex;              /* ⭐ 추가 */
+            flex-direction: column;     /* ⭐ 세로 정렬 */
+            align-items: center;
+            
+            width: 160px;
+            height: 195px;
+            gap: 16px;
+            padding: 16px;
+            background-color: #FFFFFF;
+        }
+
+        .container {
+            width: 160px;
+            height: 160px;
+            border-radius: 9999px;
+            /* top: 16px;
+            left: 16px; */
+            gap: 16px;
+            background-color: #CA785C;
+        }
+
+        .text {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="home">
+        <div class="container"></div>
+        <div class="text">프로필</div>
+    </div>
+
+</body>
+</html>
