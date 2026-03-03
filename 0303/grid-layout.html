@@ -3,9 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Flexbox 레이아웃 실습</title>
+    <style>
+        /* 1. 전체 레이아웃 수정 */
+        body {
+            margin: 0;
+            display: grid; 
+            /* 세로로 3줄 생성: 상단(고정), 중앙(남는공간), 하단(고정) */
+            grid-template-rows: auto 1fr auto; 
+            height: 100vh;
+            font-family: sans-serif;
+        }
+
+        div, header, footer, section, nav, aside {
+            border: 1px solid #ddd;
+            padding: 15px;
+        }
+
+        /* 상단과 하단 (고정 높이 스타일) */
+        header, footer {
+            background-color: #222;
+            color: white;
+            height: 25px;
+        }
+
+        /* 2. 중앙 영역 레이아웃 수정 */
+        .content-wrapper {
+            display: grid;
+            /* 가로로 3열 생성: 왼쪽(150px), 가운데(남는공간), 오른쪽(150px) */
+            grid-template-columns: 150px 1fr 150px; 
+            gap: 5px;
+            padding: 0; /* body에서 영역을 나누므로 wrapper 패딩은 상황에 따라 조절 */
+            border: none; /* 레이아웃용이므로 테두리 제거 가능 */
+        }
+
+        nav, aside {
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        /* 3. main 박스 스타일은 거의 그대로 유지하되, 내부 정렬만 Grid로 연습해보기 */
+        main {
+            display: grid;
+            align-content: start; /* 내부 요소들을 위쪽부터 배치 */
+            gap: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+
+        /* 텍스트 스타일 */
+        h2 { margin-top: 0; }
+        ul { padding-left: 20px; }
+        .hint { color: #888; font-size: 0.9em; margin-top: 10px; }
+    </style>
 </head>
 <body>
-    
+
+    <header>머리글(Header)</header>
+
+    <section class="content-wrapper">
+        <nav>
+            <strong>네비게이션(Nav)</strong>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+
+        <main>
+            <h2>메인 콘텐츠(Main)</h2>
+            
+            <div class="inner-box">양옆은 고정폭, 가운데는 가변폭!</div>
+            <p class="hint">Hint: 가운데 영역은 flex: 1로 남는 공간을 차지합니다.</p>
+        </main>
+
+        <style>
+            /* 메인 내부 박스 스타일링 */
+            .inner-box {
+            /* 1. 박스 내부의 여백 (위, 오른쪽, 아래, 왼쪽 모두 동일하게) */
+                padding: 15px; 
+
+            /* 2. 텍스트 왼쪽 정렬 (기본값이지만 명시적으로 지정 가능) */
+                text-align: left;
+
+            /* (참고) 이미지와 비슷한 느낌을 내기 위한 추가 스타일 */
+                background-color: #f8f9ff;
+                border: 1px dashed #cbd5e0;
+                width: 100%; /* 부모인 main 너비에 맞춤 */
+                box-sizing: border-box; /* 패딩이 추가되어도 박스 전체 크기가 커지지 않게 함 */
+            }
+
+            .hint {
+                color: #888;
+                font-size: 0.9em;
+            }
+        </style>
+
+        <aside>
+            <strong>사이드바(Aside)</strong>
+            <p>공지/광고/프로필 등</p>
+        </aside>
+    </section>
+
+    <footer>바닥글(Footer)</footer>
+
 </body>
 </html>
