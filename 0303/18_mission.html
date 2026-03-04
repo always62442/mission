@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    * {box-sizing: border-box;}
+    .container {
+        width: 332px;
+        height: 100px;
+        margin: 16px;
+
+        background: #FFE4E4;
+        border-radius: 0 8px 8px 0;
+        display: flex;
+    }
+
+    .side {
+        width: 160px;
+        height: 100px;
+        border-radius: 8px;
+        background: #FFB9B9;
+    }
+    
+    .content {
+        width: 172px;
+        height: 100px;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .box {
+        width: 96px;
+        height: 19px;
+
+        border-radius: 2px;
+        background-color: #FFB9B9;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .p1{
+        width: 48px;
+        height: 15px;
+
+        font-family: 'Inter';
+        margin: 2px;
+        font-size: 12px;
+        font-weight: 400;
+        
+        display: flex;
+        align-items: center;
+        
+        color: white;
+        text-align: center;
+    }
+
+    .p2 {
+        width: 123px;
+        height: 19px;
+
+        font-family: 'Inter';
+        font-size: 16px;
+        font-weight: 400;
+
+        display: flex;
+        align-items: center;
+    }
+
+    .p3 {
+        width: 113px;
+        height: 17px;
+
+        font-family: 'Inter';
+        font-size: 14px;
+        font-weight: 400;
+
+        display: flex;
+        align-items: center;
+
+        color: #8B8B8B;
+    }
+
+</style>
+<body>
+    <div class="container">
+        <div class="side"></div>
+        <div class="content">
+            <div class="box">
+                <div class="p1">반가워요!</div>
+            </div>
+            <div class="p2">좋은하루보내세요!</div>
+            <div class="p3">날씨가 좋네요!</div>
+        </div>
+    </div>
+</body>
+</html>

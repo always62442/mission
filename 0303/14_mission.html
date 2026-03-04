@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            margin: 16px;
+            width: 120px;
+            align-items: center;
+        }
+
+        .box {
+            width: 120px;
+            height: 170px;
+            border-radius: 8px;
+            background: #FFB9B9;
+
+            display: flex;
+            justify-content: flex-end;  /*가로 끝(오른쪽)*/
+            align-items: flex-end;      /*세로 끝(아래쪽)*/
+        }
+
+        .dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 999px;
+            background: #D9D9D9;
+            margin: 8px;
+        }
+        .p {
+            font-family: 'Inter';
+
+            width: 104px;
+            height: 30px;
+            margin-top: 8px;   /*박스와의 간격*/
+
+            font-weight: 400;
+            font-size: 12px;
+
+            display: flex;
+            align-items: center;
+        }
+
+    </style>
+        <div class="container">
+            <div class="box">
+                <div class="dot"></div>
+            </div>
+
+            <div class="p">나른한 점심시간, 밖에서 밥먹기</div>
+        </div>
+</body>
+</html>
