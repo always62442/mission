@@ -7,14 +7,15 @@
 
     <style>
         body {
-          background: #f5f5f5;
-          padding: 40px;
+
+          padding: 16px;
         }
 
         .card {
           width: 160px;
           height: 240px;
-          border-radius: 16px;
+          border-radius: 4px;
+
           overflow: hidden;
           position: relative;
           background: #ffffff;
@@ -24,6 +25,7 @@
         .image {
           width: 564px;
           height: 1007px;
+
           background-image: url('images/08_mission.jpg');
           background-size: cover;
           background-position: center;
@@ -35,32 +37,40 @@
         /* 160x240 갈색 영역 */
         .content {
           width: 160px;
-          height: 240px;
+          height: 68px;
+          
           background-color: #CA785C;
           position: absolute;
-          top: 16px;
-          left: 16px;
 
           display: flex;
-          align-items: center;
-          padding-left: 16px;
+          flex-direction: column;
+          margin-top: 172px;
+          gap: 8px;
         }
 
         .content p {
+          width: 83px;
+          height: 19px;
+
           margin: 0;
           font-size: 16px;
           font-weight: 700;
           color: #ffffff;
+          margin: 8px;
         }
 
-        .content p1 {
+        .profile {
+          display: flex;
+          
+        }
+        .profile p1 {
           margin: 0;
           font-size: 14px;
           font-weight: 700;
           color: #ffffff;
+          margin-left: 8px;
         }
-
-        .content p2 {
+        .profile p2 {
           margin: 0;
           font-size: 14px;
           font-weight: 700;
@@ -73,8 +83,10 @@
     <div class="card">
         <div class="image"></div>
         <div class="content">
-            <p>안녕하세요!</p>
-            <p1>김작가</p1> <p2>2024.01.01</p2>
+            <p>인테리어란?</p>
+            <div class="profile">
+              <p1>김작가</p1> <p2>2024.01.01</p2>
+            </div>
         </div>
     </div>
 

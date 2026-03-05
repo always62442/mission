@@ -1,55 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .image {
+<style>
+        .img {
             width: 320px;
             height: 320px;
+            top: 16px;
+            left: 16px;
+            background-image: url(images/11_mission.jpg);
+            box-sizing: border-box; /* 패딩이 박스 크기에 영향을 주지 않도록 추가 */
+
             background-position: -105px -297px;
-            background-image: url('images/11_mission.jpg');
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-content: space-between;
-        }
-        .p {
             padding: 16px;
+            position: relative;
+        }
+
+        .text {
             font-weight: 700;
             font-size: 24px;
-            color: #ffffff;
+            color: #FFFFFF;
         }
-        .dot1{
+
+        .circle1, .circle2, .circle3 {
             width: 32px;
             height: 32px;
-            border-radius: 999px;
-            background-color: #E3FF92;
-            margin: 16px;
+            border-radius: 50%;
+            position: absolute;
         }
-        .dot2{
-            width: 32px;
-            height: 32px;
-            border-radius: 999px;
-            background-color: #92F8FF;
-            margin: 16px;
+
+        .circle1 {
+            background: #E3FF92;
+            top: 16px;
+            left: 272px;
         }
-        .dot3{
-            width: 32px;
-            height: 32px;
-            border-radius: 999px;
-            background-color: #FF9292;
-            margin: 16px;
+
+        .circle2 {
+            background: #92F8FF;
+            top: 272px;
+            left: 16px;
+        }
+
+        .circle3 {
+            background: #FF9292;
+            top: 272px;
+            left: 272px;
         }
     </style>
-</head>
-<body>
-    <div class="image">
-        <div class="p">인테리어 디자인</div>
-        <div class="dot1"></div>
-        <div class="dot2"></div>
-        <div class="dot3"></div>
+
+    <div class="img">
+        <div class="text">인테리어 디자인</div>
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
     </div>
-</body>
-</html>
