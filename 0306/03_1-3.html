@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>클래스명 노드 취득 예제</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        max-width: 500px;
-        margin: 50px auto;
-        padding: 20px;
-      }
 
-      .box {
-        padding: 15px;
-        margin: 10px 0;
-        border: 2px solid #ddd;
-        border-radius: 5px;
-        background-color: #f9f9f9;
-      }
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+        }
 
-      .highlight {
-        background-color: #ffffcc;
-        border-color: #ffcc00;
-      }
+        .box {
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
 
-      .item {
-        padding: 8px;
-        margin: 5px 0;
-        background-color: #e9ecef;
-        border-left: 3px solid #007bff;
-      }
+        .highlight {
+            background-color: #ffffcc;
+            border-color: #ffcc00;
+        }
 
-      button {
-        padding: 10px 20px;
-        margin: 5px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-      }
+        .item {
+            padding: 8px;
+            margin: 5px 0;
+            background-color: #e9ecef;
+            border-left: 3px solid #007bff;
+        }
 
-      button:hover {
-        background-color: #0056b3;
-      }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <div class="box">첫 번째 박스</div>
     <div class="box">두 번째 박스</div>
     <div class="box highlight">세 번째 박스 (하이라이트)</div>
@@ -64,35 +67,39 @@
     <button onclick="changeHighlights()">하이라이트 요소들 선택</button>
 
     <script>
-      function changeAllBoxes() {
-        var boxes = document.getElementsByClassName("box");
+        // 1. 모든 박스 변경 
+        const changeAllBoxes = () => {
+            const boxes = document.querySelectorAll(".box");
 
-        for (var i = 0; i < boxes.length; i++) {
-          boxes[i].innerHTML = "선택된 박스 " + (i + 1);
-          boxes[i].style.backgroundColor = "#ffcccc";
-          boxes[i].style.color = "#333";
-        }
-      }
+            boxes.forEach((box, i) => {
+                box.innerHTML = `선택된 박스 ${i + 1}`;
+                box.style.backgroundColor = "#ffcccc";
+                box.style.color = "#333";
+            });
+        };
 
-      function changeAllItems() {
-        var items = document.getElementsByClassName("item");
+        // 2. 모든 아이템 변경
+        const changeAllItems = () => {
+            const items = document.querySelectorAll(".item");
 
-        for (var i = 0; i < items.length; i++) {
-          items[i].innerHTML = "새로운 아이템 " + (i + 1);
-          items[i].style.backgroundColor = "#ccffcc";
-          items[i].style.borderLeftColor = "#28a745";
-        }
-      }
+            items.forEach((item, i) => {
+                item.innerHTML = `새로운 아이템 ${i + 1}`;
+                item.style.backgroundColor = "#ccffcc";
+                item.style.borderLeftColor = "#28a745";
+            });
+        };
 
-      function changeHighlights() {
-        var highlights = document.getElementsByClassName("highlight");
+        // 3. 하이라이트 요소 변경 (기존 내용 유지하며 추가)
+        const changeHighlights = () => {
+            const highlights = document.querySelectorAll(".highlight");
 
-        for (var i = 0; i < highlights.length; i++) {
-          highlights[i].style.backgroundColor = "#ffdddd";
-          highlights[i].style.fontWeight = "bold";
-          highlights[i].innerHTML = highlights[i].innerHTML + " (수정됨)";
-        }
-      }
+            highlights.forEach(el => {
+                el.style.backgroundColor = "#ffdddd";
+                el.style.fontWeight = "bold";
+                el.innerHTML += " (수정됨)";
+            });
+            
+        };
     </script>
-  </body>
+</body>
 </html>

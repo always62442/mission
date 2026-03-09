@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h2>기존 내용</h2>
+    </div>
+
+    <button onclick="createElements()">요소 생성하기</button>
+
+    <script>
+        // 화살표 함수를 사용한 현대적인 방식
+        const createElements = () => {
+            const container = document.getElementById("container");
+
+            // 1. 추가할 HTML 구조를 백틱(`)으로 한 번에 정의합니다.
+            // 이 방식은 가독성이 훨씬 좋고 수정이 편합니다.
+            const newHtml = `
+              <div class="new-item">
+                <p>안녕하세요! insertAdjacentHTM로 만든 요소입니다.</p>
+                <span>이 텍스트는 span입니다.</span>
+              </div>
+            `;
+
+            // 2. 기존 내용을 지우지 않고, container 안쪽 끝(beforeend)에 새 요소를 삽입합니다.
+            // appendChild보다 성능이 좋고 코드가 간결합니다.
+            container.insertAdjacentHTML('beforeend', newHtml);
+        };
+    </script>
+</body>
+</html>

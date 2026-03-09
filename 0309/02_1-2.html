@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            border: 2px solid #333;
+            margin: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        .target {
+            border: 2px solid blue;
+            padding: 10px;
+            margin: 5px;
+            background-color: white;
+        }
+        .highlight {
+            background-color: yellow;
+            border: 1px solid red;
+            padding: 3px;
+            margin: 2px;
+        }
+        button {
+            margin: 5px;
+            padding: 5px 10px;
+        }
+        button:hover { 
+            background-color: #e9ecef; 
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div id="target" class="target">
+            <span>기존 자식1</span>
+            <span>기존 자식2</span>
+        </div>
+        <p>다른 형제 요소</p>
+    </div>
+
+    <div>
+        <button onclick="testBefore()">before()</button>
+        <button onclick="testAfter()">after()</button>
+        <button onclick="testPrepend()">prepend()</button>
+        <button onclick="testAppend()">append()</button>
+        <button onclick="testAppendChild()">appendChild()</button>
+        <button onclick="testStringInsert()">문자열 삽입</button>
+    </div>
+
+    <script>
+        // 1. 공통 요소 생성 로직을 별도 함수로 분리 (중복 제거)
+        const createBox = (text) => {
+            const el = document.createElement("div");
+            el.className = "highlight";
+            el.textContent = text;
+            return el;
+        };
+
+        const target = document.getElementById("target");
+
+        // 2. 각 메서드 테스트 함수
+        const testBefore = () => target.before(createBox("앞(형제)으로 추가 (before)"));
+        const testAfter = () => target.after(createBox("뒤(형제)로 추가 (after)"));
+        const testPrepend = () => target.prepend(createBox("첫 번째 자식으로 추가 (prepend)"));
+        const testAppend = () => target.append(createBox("마지막 자식으로 추가 (append)"));
+        
+        const testAppendChild = () => {
+            const child = createBox("appendChild로 추가된 자식");
+            target.appendChild(child);
+        };
+
+        const testStringInsert = () => {
+            target.append(" -> append는 텍스트도 가능!");
+            target.prepend("처음에 추가된 텍스트 -> ");
+        };
+    </script>    
+</body>
+</html>

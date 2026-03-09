@@ -57,7 +57,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>제목 영역</h1>
+        <h1 id="mainTitle">제목 영역</h1>
 
         <div class="box">첫 번째 박스</div>
         <div class="box special">두 번째 박스 (특별)</div>
@@ -66,7 +66,7 @@
 
     
     <div class="container">
-        <ul>
+        <ul id="listGroup">
             <li>첫 번째 목록</li>
             <li class="special">두 번째 목록 (특별)</li>
             <li>세 번째 목록</li>
@@ -74,7 +74,7 @@
         </ul>
     </div>
     
-    <div class="container">
+    <div class="container" id="inputContainer">
         <input type="text" placeholder="텍스트 입력" />
         <input type="email" placeholder="이메일 입력" />
         <button onclick="Input()">일반 버튼</button>
@@ -89,5 +89,80 @@
     <button onclick="selectMultiple()">복합 선택자</button>
     <button onclick="selectField()">입력 필드 선택</button>
 
+    <script>
+        // 1. ID 선택자
+        const selectID = () => {
+            const title = document.querySelector("#mainTitle");
+            title.textContent = "ID로 선택된 제목!";
+            title.style.color = "#DC3545";
+        };
+
+        // 2. 클래스 선택자 (첫 번째 요소만)
+        const selectClass = () => {
+            const firstBox = document.querySelector(".box");
+            firstBox.classList.toggle("highlight");
+            firstBox.innerHTML = "클래스로 선택된 첫 번째 박스";
+            firstBox.style.backgroundColor = "#ADFF2F";
+        };
+
+        // 3. 태그 선택자
+        const selectTag = () => {
+            const firstItem = document.querySelector(".box");
+            firstItem.style.border = "2px solid blue";
+        };
+
+        // 4. 특별 클래스 일괄 선택
+        const selectSpecialClass = () => {
+            const specials = document.querySelectorAll(".special");
+            specials.forEach(el => {
+                el.style.border = "2px solid #ffc107";
+                el.textContent = "특별 관리 대상";
+            });
+        };
+
+        // 5. 첫 번째 컨테이너 안의 박스들
+        const selectFirst = () => {
+            const conFirst = document.querySelector(".box");
+            conFirst.innerHTML = "첫 번째 컨테이너의 첫 번째 박스!";
+            conFirst.style.backgroundColor = "#f0f7ff";
+        };
+
+        // 6. 모든 박스 선택
+        const selectBox = () => {
+            const boxes = document.querySelectorAll(".box");
+            boxes.forEach((box, idx) => {
+                
+                box.style.backgroundColor = "#E6E6FA"; 
+                box.textContent = `모든 박스 ${idx + 1}번 변경!`;
+            });
+        };
+
+        // 7. 복합 선택자 (special이 아닌 box만 선택)
+        const selectMultiple = () => {
+            const normalBoxes = document.querySelectorAll(".box:not(.special)");
+            normalBoxes.forEach(box => {
+                box.textContent = "복합 선택자로 선택됨";
+                box.style.backgroundColor = "#d4edda";
+                box.style.border = "2px dashed #28a745";
+            });
+        };
+
+        // 8. 입력 필드 속성 선택자
+        const selectField = () => {
+            // 1. type이 "text"인 input 요소를 찾아 값을 넣고 노란색 배경을 줍니다.
+            const textInput = document.querySelector('input[type="text"]');
+            if (textInput) {
+                textInput.value = "querySelector로 설정된 값";
+                textInput.style.backgroundColor = "#fff3cd"; // 연한 노란색
+            }
+        
+            // 2. type이 "email"인 input 요소를 찾아 값을 넣고 하늘색 배경을 줍니다.
+            const emailInput = document.querySelector('input[type="email"]');
+            if (emailInput) {
+                emailInput.value = "test@example.com";
+                emailInput.style.backgroundColor = "#d1ecf1"; // 연한 하늘색
+            }
+        }
+    </script>
 </body>
 </html>

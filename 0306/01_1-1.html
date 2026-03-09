@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ID 노드 취득 예제</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        max-width: 500px;
-        margin: 50px auto;
-        padding: 20px;
-      }
+        body {
+          font-family: Arial, sans-serif;
+          max-width: 500px;
+          margin: 50px auto;
+          padding: 20px;
+        }
 
-      .box {
-        padding: 20px;
-        margin: 10px 0;
-        border: 2px solid #ccc;
-        border-radius: 5px;
-      }
+        .box {
+          padding: 20px;
+          margin: 10px 0;
+          border: 2px solid #ccc;
+          border-radius: 5px;
+        }
 
-      button {
-        padding: 10px 20px; 
-        margin: 5px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-      }
+        button {
+          padding: 10px 20px; 
+          margin: 5px;
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+        }
 
-      button:hover {
-        background-color: #0056b3;
-      }
+        button:hover {
+          background-color: #0056b3;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="box1" class="box">첫 번째 박스입니다.</div>
-
     <div id="box2" class="box">두 번째 박스입니다.</div>
 
     <p id="message">여기에 메시지가 표시됩니다.</p>
@@ -47,29 +46,32 @@
     <button onclick="showMessage()">메시지 선택</button>
 
     <script>
-      function changeBox1() {
-        var element = document.getElementById("box1");
-
-        element.innerHTML = "첫 번째 박스를 찾았습니다";
-
-        element.style.backgroundColor = "#ffcccc";
-      }
-
-      function changeBox2() {
-        document.getElementById("box2").innerHTML = "두 번째 박스를 찾았습니다";
-        document.getElementById("box2").style.backgroundColor = "#ccffcc";
-        document.getElementById("box2").style.color = "#333";
-      }
-
-      function showMessage() {
-        var messageElement = document.getElementById("message");
-
-        messageElement.textContent = "ID로 요소를 성공적으로 찾았습니다";
-
-        messageElement.style.color = "#007bff";
-        messageElement.style.fontSize = "18px";
-        messageElement.style.fontWeight = "bold";
-      }
+        // 1. 첫 번째 박스 변경
+        const changeBox1 = () => {
+          const box1 = document.getElementById("box1");
+          if (box1) {
+            box1.textContent = "첫 번째 박스를 찾았습니다";
+            box1.style.backgroundColor = "#ffcccc";
+          }
+        };
+      
+        // 2. 두 번째 박스 변경 
+        const changeBox2 = () => {
+          const box2 = document.getElementById("box2");
+          if (box2) {
+            box2.textContent = "두 번째 박스를 찾았습니다";
+            box2.style.cssText = "background-color: #ccffcc; color: #333;";
+          }
+        };
+      
+        // 3. 메시지 보여주기 
+        const showMessage = () => {
+          const msg = document.getElementById("message");
+          if (msg) {
+            msg.textContent = "ID로 요소를 성공적으로 찾았습니다";
+            msg.style.cssText = "color: #007bff; font-size: 18px; font-weight: bold;";
+          }
+        };
     </script>
-  </body>
+</body>
 </html>
