@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ID 노드 취득 예제</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        p {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        button {
+            padding: 10px 20px; 
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+  </head>
+
+  <body>
+    <p>첫 번째 문단입니다.</p>
+    <p>두 번째 문단입니다.</p>
+    <p>세 번째 문단입니다.</p>
+
+    <ul>
+        <li>첫 번째 목록</li>
+        <li>두 번째 목록</li>
+        <li>세 번째 목록</li>
+        <li>네 번째 목록</li>
+    </ul>
+
+    <button onclick="selectBox()">모든 문단 선택</button>
+    <button onclick="selectList()">모든 목록 선택</button>
+    <button onclick="selectFirst()">첫 번째 문단만 선택</button>
+
+    <script>
+        function selectBox() {
+            var element = document.getElementsByTagName("p");
+            for (var i = 0; i < element.length; i++) {
+                element[i].innerHTML = "선택된 문단 " + (i + 1);
+                element[i].style.backgroundColor = "#ffeecc";
+            }
+        }
+        
+
+        function selectList() {
+            var list = document.getElementsByTagName("li");
+            for (var i = 0; i < list.length; i++) {
+                list[i].innerHTML = "선택된 목록 " + (i + 1);
+                list[i].style.color = "#000fff";
+            }
+        }
+
+        function selectFirst() {
+            var firstp = document.getElementsByTagName("p");
+            if (firstp.length > 0) {
+                firstp[0].innerHTML = "첫 번째 문단만 선택되었습니다!";
+                firstp[0].style.backgroundColor = "#555555";
+                firstp[0].style.color = "#ffffff";
+            }
+        }
+
+    </script>
+  </body>
+</html>
