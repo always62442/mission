@@ -26,32 +26,51 @@
 </head>
 <body>
     <div class="container">
-        <div class="original">
-            <p class="parent" id="text1">교체될 요소 1</p>
-            <p class="child" id="text2">교체될 요소 2</p>
-            <p class="child" id="text3">교체될 요소 3</p>
+        <div class="original" id="original">
+            <h3>원본 요소</h3>
+            <p>자식 요소 1</p>
+            <span>자식 요소 2</p>
         </div>
     </div>
-    <div class="container">
-        
+    <div class="container" id="copy">
+        <h3>복제된 요소들이 여기 추가됩니다.</h3>
     </div>
 
-    <button onclick= paraFalse()">첫 번째 자식 삭제</button>
-    <button onclick="paraTrue()">두 번째 자식 삭제</button>
-    <button onclick="removeCopy()">세 번째 자식 삭제</button>
+    <button onclick= "paraFalse()">파라미터: false</button>
+    <button onclick="paraTrue()">파라미터: true</button>
+    <button onclick="removeCopy()">복제본 제거</button>
 
     <script>
+
         function paraFalse() {
-            const 
-            const 
+            const original = document.getElementById("original");
+            const result = document.getElementById("copy");
+            
+            const clone = original.cloneNode(false);
+
+            clone.className = "clone";
+
+            clone.textContent = "파라미터: false";
+
+            result.appendChild(clone);
         }
+
         function paraTrue() {
-            const 
-            const 
+            const original = document.getElementById("original");
+            const result = document.getElementById("copy");
+            
+            const clone = original.cloneNode(true);
+
+            clone.className = "clone";
+            clone.removeAttribute("id");
+
+            result.appendChild(clone);
         }
+
         function removeCopy() {
-            const 
-            const 
+            const result = document.getElementById("copy");
+            const clones = result.querySelectorAll(".clone");
+            clones.forEach((clone) => clone.remove());
         }
     </script>
 </body>
