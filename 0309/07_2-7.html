@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            border: 2px solid red;
+            padding: 15px;
+            margin: 10px;
+        }
+        .item {
+            background: lightcoral;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="item" id="target1">삭제할 자식 1</div>
+        <div class="item" id="target2">삭제할 자식 2</div>
+        <div class="item" id="target3">삭제할 자식 3</div>
+        <div class="item" id="target4">삭제할 자식 4</div>
+    </div>
+
+    <button onclick="removeFirst()">첫 번째 자식 삭제</button>
+    <button onclick="removeSecond()">두 번째 자식 삭제</button>
+    <button onclick="removeThird()">세 번째 자식 삭제</button>
+    <button onclick="removeForth()">네 번째 자식 삭제</button>
+    
+    <script>
+        function removeFirst() {
+            const container = document.getElementById("container");
+            const reEl = document.getElementById("target1");
+            container.removeChild(reEl);
+        }
+
+        function removeSecond() {
+            const container = document.getElementById("container");
+            const reEl = document.getElementById("target2");
+            container.removeChild(reEl);
+        }
+
+        function removeThird() {
+            const container = document.getElementById("container");
+            const reEl = document.getElementById("target3");
+            container.removeChild(reEl);
+        }
+        
+        function removeForth() {
+            const container = document.getElementById("container");
+            const reEl = document.getElementById("target4");
+            container.removeChild(reEl);
+        }
+    </script>
+</body>
+</html>

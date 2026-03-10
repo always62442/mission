@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .old {
+            background: red;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+        }
+        .new {
+            background: green;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p class="old" id="target1">교체될 요소 1</p>
+        <p class="old" id="target2">교체될 요소 2</p>
+        <p class="old" id="target3">교체될 요소 3</p>
+    </div>
+
+    <button onclick="replaceWithElement()">요소로 교체</button>
+    <button onclick="replaceWithText()">텍스트로 교체</button>
+    <button onclick="replaceWithHTML()">HTML로 교체</button>
+
+    <script>
+        function replaceWithElement() {
+            const reEl = document.getElementById("target1");
+            const newEl = document.createElement("div");
+            newEl.textContent = "새로운 요소로 교체됨";
+            newEl.className = "new";
+            reEl.replaceWith(newEl);
+        }
+        function replaceWithText() {
+            const reTx = document.getElementById("target2");
+            reTx.replaceWith("단순 텍스트로 교체됨");
+        }
+        function replaceWithHTML() {
+            const reHt = document.getElementById("target3");
+            const newDiv = document.createElement("div");
+            newDiv.innerHTML = "<strong>HTML 요소로 교체됨</strong>";
+            newDiv.className = "new";
+            reHt.replaceWith(newDiv);
+        }
+    </script>
+</body>
+</html>
