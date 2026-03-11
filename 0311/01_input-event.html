@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 입력 양식 이벤트 연습하기</title>
+    <style>
+        body { padding: 20px; line-height: 1.6; max-width: 600px; }
+        
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        
+        input[type="text"], input[type="email"], select, textarea {
+          width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;
+        }
+
+        .radio-group { display: flex; gap: 10px; align-items: center; }
+        .radio-group input { margin-right: 5px; }
+
+        .submit-btn {
+          background-color: #2196F3; color: white; border: none;
+          padding: 12px 25px; cursor: pointer; border-radius: 2px; font-size: 16px; margin-top: 15px;
+        }
+        .submit-btn:hover { background-color: #1976D2; }
+    </style>
+
+</head>
+<body>
+    <h1>사용자 입력 양식 이벤트 연습하기</h1>
+
+    <form id="practice-form">
+        <div class="form-group">
+          <label for="name">이름</label>
+          <input type="text" id="name" placeholder="이름을 입력하세요">
+        </div>
+
+        <div class="form-group">
+          <label for="email">이메일</label>
+          <input type="email" id="email" placeholder="example@domain.com">
+        </div>
+
+        <div class="form-group">
+          <label>성별</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gender" value="male"> 남자</label>
+            <label><input type="radio" name="gender" value="female"> 여자</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="date">참여 일자 선택</label>
+          <select id="date">
+            <option value="">-- 날짜 선택 --</option>
+            <option value="2026-03-11">2026년 3월 11일</option>
+            <option value="2026-03-12">2026년 3월 12일</option>
+            <option value="2026-03-13">2026년 3월 13일</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <textarea id="memo" style="resize: none;" cols="30" rows="10" placeholder="내용을 입력하세요 (최대 500자)"></textarea>
+          <div class="char-count"><span id="current-chars">0</span>/500자</div>
+        </div>
+
+        <div class="form-group">
+          <label style="display: flex; align-items: center; font-weight: normal;">
+            <input type="checkbox" id="agree" style="margin-right: 10px;"> 개인정보 수집에 동의합니다.
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">신청하기</button>
+    </form>
+
+    <script>
+
+    </script>
+</body>
+</html>
