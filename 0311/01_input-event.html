@@ -31,25 +31,25 @@
     <form id="practice-form">
         <div class="form-group">
           <label for="name">이름</label>
-          <input type="text" id="name" placeholder="이름을 입력하세요">
+          <input type="text" id="name" required placeholder="이름을 입력하세요">
         </div>
 
         <div class="form-group">
           <label for="email">이메일</label>
-          <input type="email" id="email" placeholder="example@domain.com">
+          <input type="email" id="email" required placeholder="example@domain.com">
         </div>
 
         <div class="form-group">
           <label>성별</label>
           <div class="radio-group">
-            <label><input type="radio" name="gender" value="male"> 남자</label>
+            <label><input type="radio" name="gender" value="male" required> 남자</label>
             <label><input type="radio" name="gender" value="female"> 여자</label>
           </div>
         </div>
 
         <div class="form-group">
           <label for="date">참여 일자 선택</label>
-          <select id="date">
+          <select id="date" required>
             <option value="">-- 날짜 선택 --</option>
             <option value="2026-03-11">2026년 3월 11일</option>
             <option value="2026-03-12">2026년 3월 12일</option>
@@ -58,21 +58,47 @@
         </div>
 
         <div class="form-group">
-          <textarea id="memo" style="resize: none;" cols="30" rows="10" placeholder="내용을 입력하세요 (최대 500자)"></textarea>
-          <div class="char-count"><span id="current-chars">0</span>/500자</div>
+            <label for="memo">요청사항</label>
+            <textarea id="memo" style="resize: none;" cols="30" rows="10" placeholder="내용을 입력하세요 (최대 500자)"></textarea>
+            <div class="char-count"><span id="current-chars">0</span>/500자</div>
         </div>
 
         <div class="form-group">
           <label style="display: flex; align-items: center; font-weight: normal;">
-            <input type="checkbox" id="agree" style="margin-right: 10px;"> 개인정보 수집에 동의합니다.
+            <input type="checkbox" id="agree" required style="margin-right: 10px;" > 개인정보 수집에 동의합니다.
           </label>
         </div>
 
-        <button type="submit" class="submit-btn">신청하기</button>
+        <button type="submit" class="submit-btn" required>신청하기</button>
     </form>
 
     <script>
+    // 1. 글자수 실시간 카운팅 이벤트
+    const memo = document.getElementById('memo');
+    const charCount = document.getElementById('current-chars');
 
-    </script>
+    memo.addEventListener('input', (e) => {
+      const length = e.target.value.length;
+      charCount.textContent = length;
+      
+      if(length > 500) {
+        alert("500자를 초과할 수 없습니다.");
+        e.target.value = e.target.value.substring(0, 500);
+        charCount.textContent = 500;
+      }
+    });
+
+    // 2. 폼 제출 시 유효성 검사 (아까 배운 preventDefault 활용!)
+    document.getElementById('practice-form').addEventListener('submit', (e) => {
+      const agree = document.getElementById('agree').checked;
+      
+      if (!agree) {
+        alert("개인정보 수집에 동의해야 신청이 가능합니다.");
+        e.preventDefault(); // 서버 전송 막기
+      } else {
+        alert("신청이 완료되었습니다!");
+      }
+    });
+  </script>
 </body>
 </html>
